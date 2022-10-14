@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "Gilroy-Medium";
+    src: url(./Asset/Fonts/Gilroy/Gilroy-Medium.ttf);
+}
+
+*{
+    font-family: "Gilroy-Medium";
+}
+
+
+@font-face {
+    font-family: "TerminaW05-Bold";
+    src: url(./Asset/Fonts/Termina/Termina\ W05\ Bold.ttf);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: "TerminaW05-Bold";
+}

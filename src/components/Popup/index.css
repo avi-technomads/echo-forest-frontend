@@ -1,0 +1,88 @@
+.popup {
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.7s;
+  animation-name: animatetop;
+  animation-duration: 0.7s;
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modalBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.modalBackground .container .popup {
+  margin-top: 85px;
+  max-height: 85vh;
+  overflow: auto !important;
+  box-shadow: 1px 1px 11px 2px rgba(0, 0, 0, 0.15);
+}
+
+@font-face {
+  font-family: "TerminaW05-Bold";
+  src: url(../../Asset/Fonts/Termina/Termina\ W05\ Bold.ttf);
+}
+
+.popup h2 {
+  font-family: "TerminaW05-Bold";
+  line-height: 50px;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url(../../Asset/Fonts/Gilroy/Gilroy-Regular.ttf);
+}
+
+.popup p,
+.leftBox .social h5,
+.popup input {
+  font-family: "Gilroy";
+}
+
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url(../../Asset/Fonts/Gilroy/Gilroy-Bold.ttf);
+}
+
+.leftBox .social h5,
+.popup button {
+  font-family: "Gilroy-Bold";
+}
+
+.social-discord:before,
+.social-twitter:before,
+.social-insta:before {
+  font-size: 20px;
+}
+
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none; /* IE and Edge */
+}

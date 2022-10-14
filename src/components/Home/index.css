@@ -1,0 +1,18 @@
+.bg-home{
+    background: url(../../image/Top_Banner\ 1\ \(1\).png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;  
+    background-position: center;
+    transition: 0.8s ease-in-out;  
+}
+
+@font-face {
+    font-family: "TerminaW05-Bold";
+    src: url(../../Asset/Fonts/Termina/Termina\ W05\ Bold.ttf);
+}
+
+.welcome,
+.ecoforest{
+    font-family: "TerminaW05-Bold";
+}

@@ -1,0 +1,46 @@
+import React, { useEffect } from "react";
+import udti_titali from "../../image/udti-titali.svg";
+import "../About/index.css";
+import AOS from "aos";
+
+function About() {
+  AOS.init();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <>
+      <div
+        className="container mx-auto grid lg:grid-cols-2 grid-cols-1 gap-20 pt-52"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+        id="about"
+      >
+        <div className="flex lg:justify-end justify-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-1000">
+          <img src={udti_titali} alt="" className="xl:w-3/4 lg:w-5/6 w-2/4  " />
+        </div>
+
+        <div className="flex flex-col md:text-justify lg:text-start  items-center lg:items-start md:p-0 p-5">
+          <h5 className="font-bold xl:text-5xl md:text-4xl text-3xl">
+            <span className="block">About the Echo</span>
+            <span className="block">Forest NFTs</span>
+          </h5>
+          <p className="mt-4 max-w-md ">
+            We’ve created 10,000 unique NFTs, each representing a character in
+            the fantasy world called the Echoverse. Every NFT in our collection
+            is a combination of 1 of 10 different forest animals, plus an
+            assigned class or profession and is equipped with anywhere from 2-4
+            items that vary in rarity from common to unique.
+          </p>
+          <p className="mt-5 max-w-md text-justify">
+            The utility of the Echo Forest NFT comes in two forms; earning EXP
+            tokens and voting in the Echo DAO.
+          </p>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default About;

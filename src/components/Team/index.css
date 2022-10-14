@@ -1,0 +1,13 @@
+h5 span{
+    line-height: 80px;
+}
+
+@font-face {
+    font-family: "Gilroy-Bold";
+    src: url(../../Asset/Fonts/Gilroy/Gilroy-Bold.ttf);
+}
+
+.member-name{
+    font-family: 'Gilroy-Bold';
+    line-height: 35px;
+}
