@@ -11,33 +11,32 @@ function SignUp() {
   AOS.init();
 
   const [subscribe, setSubscribe] = useState("");
-  const [store, setStore] = useState("");
 
   const handleChange = (e) => {
     setSubscribe(e.target.value);
   };
 
-  console.log("🚀 ~ store", store);
   const handleOnSignUp = (e) => {
+    e.preventDefault();
+    const data = {
+      email: subscribe,
+    };
     axios
-      .post(`${baseUrl}/ecoforest/newsletter`)
+      .post(`${baseUrl}/ecoforest/newsletter`, data)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
-    e.preventDefault();
-    setStore((prevVal) => {
-      toast.success("Thank you, You are join Our Newsletter", {
-        position: "top-right",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      return [subscribe, ...prevVal];
-    });
     setSubscribe("");
+
+    toast.success("Thank you, You are join Our Newsletter", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
     // let emailcheck = document.getElementById("emailcheck").value;
     // let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -85,6 +84,7 @@ function SignUp() {
                   placeholder="abc@gmail.com"
                   id="emailcheck"
                   onChange={handleChange}
+                  name="email"
                   value={subscribe}
                 />
                 <span className="block" id="errormMessage"></span>

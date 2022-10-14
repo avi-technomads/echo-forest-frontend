@@ -9,7 +9,7 @@ function Header() {
 
   var scrollTrigger = 60;
 
-  window.onscroll = function() {
+  window.onscroll = function () {
     if (
       window.scrollY >= scrollTrigger ||
       window.pageYOffset >= scrollTrigger
@@ -23,7 +23,7 @@ function Header() {
   const [walletAddress, setWalletAddress] = useState(null);
   // console.log("🚀 ~ walletAddress", walletAddress);
 
-  window.onload = async function() {
+  window.onload = async function () {
     try {
       if (window.solana) {
         const solana = window.solana;
@@ -34,7 +34,8 @@ function Header() {
           // console.log(`connected with public key,`, res.publicKey.toString());
           setWalletAddress(res.publicKey.toString());
         } else {
-          alert("Phantom Wallet not found");
+          window.open("https://phantom.app/download");
+          // alert("Phantom Wallet not found");
         }
       }
     } catch (err) {
@@ -48,7 +49,8 @@ function Header() {
       const res = await solana.connect();
       setWalletAddress(res.publicKey.toString());
     } else {
-      alert("Wallet not found");
+      // alert("Phantom Wallet not found");
+      window.open("https://phantom.app/");
     }
   };
 
@@ -110,7 +112,9 @@ function Header() {
               {!walletAddress ? (
                 <Link>Connect Wallet</Link>
               ) : (
-                <p>{walletAddress.slice(0,4)}...{walletAddress.slice(-4)}</p>
+                <p>
+                  {walletAddress.slice(0, 4)}...{walletAddress.slice(-4)}
+                </p>
               )}
             </p>
 

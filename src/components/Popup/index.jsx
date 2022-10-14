@@ -1,30 +1,51 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../Popup/index.css";
 import GreetMessage from "../GreetMessage";
+import axios from "axios";
+
+const baseUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Popup = ({ setOpenModal }) => {
   const [name, setName] = useState("");
-  console.log("🚀 ~ name", name)
   const [email, setEmail] = useState("");
-  console.log("🚀 ~ email", email)
   const [message, setMessage] = useState("");
-  console.log("🚀 ~ message", message)
   const [thankyou, setThankyou] = useState(false);
   const ref = useRef();
+
+  const thankYouOpen =()=>{
+    setThankyou(true)
+    // setThankyou
+  }
+
+  const nameHandler = (e) => {
+    setName(e.target.value);
+  };
+
+  const emailHandler = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const messageHandler = (e) => {
+    setMessage(e.target.value);
+  };
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    // fetch("http://192.168.29.51:5000/create", {
-    //   method: "POST",
-    //   body: {
-    //     name: name,
-    //     email: email,
-    //     message: message,
-    //   },
-    // })
-    //   .then((res) => res.json(name, message, email))
-    //   .then((req) => console.log(req));
+    const data = {
+      name: name,
+      email: email,
+      message: message,
+    };
+
+    axios
+      .post(`${baseUrl}/ecoforest/contact`, data)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+
+    setEmail("");
+    setName("");
+    setMessage("");
   };
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -41,11 +62,11 @@ const Popup = ({ setOpenModal }) => {
       // Cleanup the event listener
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
-  }, [setOpenModal]); 
+  }, [setOpenModal]);
 
   return (
     <>
-      {thankyou && <GreetMessage setThankyou={setThankyou} />}
+      {/* {thankyou && <GreetMessage closeGreetMessage={()=>setThankyou(true)} />} */}
       <div
         className="modalBackground fixed top-7 z-50 container mx-auto inset-0 lg:max-w-5xl px-2"
         ref={ref}
@@ -110,11 +131,11 @@ const Popup = ({ setOpenModal }) => {
                 <p className="text-xl pb-3">
                   We are here for you. How can we help?
                 </p>
-                <form onClick={handleOnSubmit}>
+                <form onSubmit={handleOnSubmit}>
                   <label className="block">
                     <input
                       type="text"
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={nameHandler}
                       value={name}
                       name="name"
                       autoComplete="off"
@@ -126,7 +147,7 @@ const Popup = ({ setOpenModal }) => {
                     <input
                       type="email"
                       name="email"
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={emailHandler}
                       value={email}
                       autoComplete="off"
                       className="p-3 mt-4 bg-white border shadow-sm border-slate-800 placeholder-slate-700 focus:outline-none focus:border-slate-800 focus:ring-slate-700 block w-full rounded-md sm:text-md focus:ring-1"
@@ -139,19 +160,19 @@ const Popup = ({ setOpenModal }) => {
                       id="message"
                       cols="30"
                       rows="8"
-                      onChange={(e) => setMessage(e.target.value)}
+                      onChange={messageHandler}
                       value={message}
                       className="p-3 mt-4 bg-white border shadow-sm border-slate-800 placeholder-slate-700 focus:outline-none focus:border-slate-800 focus:ring-slate-700 block w-full rounded-md sm:text-md focus:ring-1"
                       placeholder="Enter your message"
                     />
                   </label>
                   <label className="block text-center mt-5">
+                    {/* {thankYouOpen} */}
+                    {thankyou && <GreetMessage closeGreetMessage={()=>setThankyou(false)} />}
                     <button
                       className="bg-[#000000] hover:bg-white border-2 border-black text-white hover:text-black font-bold py-3 px-8 text-xl rounded transition ease-in-out delay-150 duration-1000"
-                      onClick={() => {
-                        setThankyou(true);
-                      }}
-                      // onClick={() => { handleOnSubmitForm, setThankyou(true) }}
+                      type="submit"
+                      onClick={thankYouOpen}
                     >
                       Submit
                     </button>
