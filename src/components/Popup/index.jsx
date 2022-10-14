@@ -4,8 +4,11 @@ import GreetMessage from "../GreetMessage";
 
 const Popup = ({ setOpenModal }) => {
   const [name, setName] = useState("");
+  console.log("🚀 ~ name", name)
   const [email, setEmail] = useState("");
+  console.log("🚀 ~ email", email)
   const [message, setMessage] = useState("");
+  console.log("🚀 ~ message", message)
   const [thankyou, setThankyou] = useState(false);
   const ref = useRef();
 

@@ -9,7 +9,7 @@ function Header() {
 
   var scrollTrigger = 60;
 
-  window.onscroll = function () {
+  window.onscroll = function() {
     if (
       window.scrollY >= scrollTrigger ||
       window.pageYOffset >= scrollTrigger
@@ -17,6 +17,38 @@ function Header() {
       document.getElementsByTagName("header")[0].classList.add("inverted");
     } else {
       document.getElementsByTagName("header")[0].classList.remove("inverted");
+    }
+  };
+
+  const [walletAddress, setWalletAddress] = useState(null);
+  // console.log("🚀 ~ walletAddress", walletAddress);
+
+  window.onload = async function() {
+    try {
+      if (window.solana) {
+        const solana = window.solana;
+        if (solana.isPhantom) {
+          console.log(`Phantom wallet found`);
+
+          const res = await solana.connect({ onlyIfTrusted: true });
+          // console.log(`connected with public key,`, res.publicKey.toString());
+          setWalletAddress(res.publicKey.toString());
+        } else {
+          alert("Phantom Wallet not found");
+        }
+      }
+    } catch (err) {
+      console.log(err, "err");
+    }
+  };
+
+  const connectWallet = async () => {
+    if (window.solana) {
+      const solana = window.solana;
+      const res = await solana.connect();
+      setWalletAddress(res.publicKey.toString());
+    } else {
+      alert("Wallet not found");
     }
   };
 
@@ -71,11 +103,18 @@ function Header() {
             <p className="cursor-pointer rounded-lg py-2 px-4  bg-black text-white whitespace-nowrap  transition ease-in-out delay-150  hover:-translate-y-1 duration-1000 hover:shadow-lg shadow-lg hover:bg-white hover:text-black">
               <Link to="/mint">Upcoming Mint</Link>
             </p>
-            <p className="cursor-pointer rounded-lg py-2 px-4 bg-black text-white whitespace-nowrap  transition ease-in-out delay-150  hover:-translate-y-1 duration-1000 hover:shadow-lg shadow-lg hover:bg-white hover:text-black">
-              <Link>Connect Wallet</Link>
+            <p
+              onClick={connectWallet}
+              className="cursor-pointer rounded-lg py-2 px-4 bg-black text-white whitespace-nowrap  transition ease-in-out delay-150  hover:-translate-y-1 duration-1000 hover:shadow-lg shadow-lg hover:bg-white hover:text-black"
+            >
+              {!walletAddress ? (
+                <Link>Connect Wallet</Link>
+              ) : (
+                <p>{walletAddress.slice(0,4)}...{walletAddress.slice(-4)}</p>
+              )}
             </p>
 
-            <Link to='mint-page'></Link>
+            <Link to="mint-page"></Link>
           </div>
         </header>
         {/* ===============Mobile size============== */}

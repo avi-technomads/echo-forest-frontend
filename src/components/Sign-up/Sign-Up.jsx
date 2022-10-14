@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import AOS from "aos";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
+const baseUrl = process.env.REACT_APP_BACKEND_URL;
+// console.log("🚀 ~ baseUrl", baseUrl);
 
 function SignUp() {
   AOS.init();
 
-  const handleOnSignUp = (e) => {
-    e.preventDefault();
+  const [subscribe, setSubscribe] = useState("");
+  const [store, setStore] = useState("");
 
-    let emailcheck = document.getElementById("emailcheck").value;
-    let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (pattern.test(emailcheck)) {
-      document.getElementById("errormMessage").innerHTML =
-        "";
+  const handleChange = (e) => {
+    setSubscribe(e.target.value);
+  };
+
+  console.log("🚀 ~ store", store);
+  const handleOnSignUp = (e) => {
+    axios
+      .post(`${baseUrl}/ecoforest/newsletter`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+
+    e.preventDefault();
+    setStore((prevVal) => {
       toast.success("Thank you, You are join Our Newsletter", {
         position: "top-right",
         autoClose: 4000,
@@ -23,11 +35,28 @@ function SignUp() {
         draggable: true,
         progress: undefined,
       });
-    } else {
-      let errormMessage = document.getElementById("errormMessage");
-      errormMessage.innerHTML = "Invalid Email ID";
-      errormMessage.style.color = "red";
-    }
+      return [subscribe, ...prevVal];
+    });
+    setSubscribe("");
+
+    // let emailcheck = document.getElementById("emailcheck").value;
+    // let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (pattern.test(emailcheck)) {
+    //   document.getElementById("errormMessage").innerHTML = "";
+    //   toast.success("Thank you, You are join Our Newsletter", {
+    //     position: "top-right",
+    //     autoClose: 4000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // } else {
+    //   let errormMessage = document.getElementById("errormMessage");
+    //   errormMessage.innerHTML = "Invalid Email ID";
+    //   errormMessage.style.color = "red";
+    // }
   };
 
   return (
@@ -55,11 +84,16 @@ function SignUp() {
                   className="border-2 rounded-lg border-black p-3 md:w-full w-48 outline-none "
                   placeholder="abc@gmail.com"
                   id="emailcheck"
+                  onChange={handleChange}
+                  value={subscribe}
                 />
                 <span className="block" id="errormMessage"></span>
               </div>
               <div>
-                <button className="bg-black py-3 px-5  text-white rounded-lg md:whitespace-normal border-2 whitespace-nowrap cursor-pointer transition ease-in-out duration-1000 hover:-translate-y-1 hover:shadow-lg shadow-lg hover:bg-white hover:text-black">
+                <button
+                  type="submit"
+                  className="bg-black py-3 px-5  text-white rounded-lg md:whitespace-normal border-2 whitespace-nowrap cursor-pointer transition ease-in-out duration-1000 hover:-translate-y-1 hover:shadow-lg shadow-lg hover:bg-white hover:text-black"
+                >
                   Sign Up
                 </button>
               </div>
