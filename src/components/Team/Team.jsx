@@ -36,6 +36,7 @@ function Team() {
       icon1: "fa-brands fa-linkedin-in",
       link1: "https://www.linkedin.com/in/matthew-benesch/",
       icon2: "fa-brands fa-twitter",
+      link2: "https://twitter.com/0xFrozenAssets",
       icon3: "fa-brands fa-instagram",
     },
     {
