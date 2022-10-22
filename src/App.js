@@ -23,8 +23,8 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/mint" element={<UpcomingMint />} />
-        <Route element={<Sliders />} />
         <Route exact path="/roadmap" element={<Roadmap />} />
+        <Route element={<Sliders />} />
         <Route exact path="/ourteam" element={<Team />} />
 
         <Route element={<SignUp />} />
