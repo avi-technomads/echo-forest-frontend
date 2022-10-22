@@ -23,6 +23,8 @@ function Header() {
   const [walletAddress, setWalletAddress] = useState(null);
   // console.log("🚀 ~ walletAddress", walletAddress);
 
+
+  // detect wallet
   window.onload = async function () {
     try {
       if (window.solana) {
@@ -43,6 +45,8 @@ function Header() {
     }
   };
 
+
+  // Connect Wallet
   const connectWallet = async () => {
     if (window.solana) {
       const solana = window.solana;
@@ -105,7 +109,7 @@ function Header() {
             <p className="cursor-pointer rounded-lg py-2 px-4  bg-black text-white whitespace-nowrap  transition ease-in-out delay-150  hover:-translate-y-1 duration-1000 hover:shadow-lg shadow-lg hover:bg-white hover:text-black">
               <Link to="/mint">Upcoming Mint</Link>
             </p>
-            <p
+            {/* <p
               onClick={connectWallet}
               className="cursor-pointer rounded-lg py-2 px-4 bg-black text-white whitespace-nowrap  transition ease-in-out delay-150  hover:-translate-y-1 duration-1000 hover:shadow-lg shadow-lg hover:bg-white hover:text-black"
             >
@@ -116,14 +120,14 @@ function Header() {
                   {walletAddress.slice(0, 4)}...{walletAddress.slice(-4)}
                 </p>
               )}
-            </p>
+            </p> */}
 
             <Link to="mint-page"></Link>
           </div>
         </header>
         {/* ===============Mobile size============== */}
 
-        <div className="fixed md:hidden p-5 ">
+        <div className="fixed md:hidden p-5 z-50">
           <i
             className={`${
               toggle ? "hidden" : "block fa-solid fa-bars text-3xl"

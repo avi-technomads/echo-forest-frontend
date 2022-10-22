@@ -12,10 +12,10 @@ const Popup = ({ setOpenModal }) => {
   const [thankyou, setThankyou] = useState(false);
   const ref = useRef();
 
-  const thankYouOpen =()=>{
-    setThankyou(true)
+  const thankYouOpen = () => {
+    setThankyou(true);
     // setThankyou
-  }
+  };
 
   const nameHandler = (e) => {
     setName(e.target.value);
@@ -40,7 +40,10 @@ const Popup = ({ setOpenModal }) => {
 
     axios
       .post(`${baseUrl}/ecoforest/contact`, data)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        thankYouOpen();
+      })
       .catch((err) => console.log(err));
 
     setEmail("");
@@ -168,11 +171,14 @@ const Popup = ({ setOpenModal }) => {
                   </label>
                   <label className="block text-center mt-5">
                     {/* {thankYouOpen} */}
-                    {thankyou && <GreetMessage closeGreetMessage={()=>setThankyou(false)} />}
+                    {thankyou && (
+                      <GreetMessage
+                        closeGreetMessage={() => setThankyou(false)}
+                      />
+                    )}
                     <button
                       className="bg-[#000000] hover:bg-white border-2 border-black text-white hover:text-black font-bold py-3 px-8 text-xl rounded transition ease-in-out delay-150 duration-1000"
                       type="submit"
-                      onClick={thankYouOpen}
                     >
                       Submit
                     </button>

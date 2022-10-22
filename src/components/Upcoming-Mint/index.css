@@ -28,3 +28,37 @@ tr th:nth-child(1),
 .echoapp tbody tr:nth-child(even) {
   background: #ebf4e8;
 }
+/* ol {
+  counter-reset: li; 
+  margin-left: 0; 
+  padding-left: 0; 
+}
+ol > li {
+  position: relative; 
+  margin: 0 0 6px 2em; 
+  padding: 4px 8px; 
+  list-style: none; 
+}
+ol > li:before {
+  content: counter(li); 
+  counter-increment: li;
+  position: absolute;
+  top: 0;
+  left: -2em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 2em;
+  margin-right: 8px;
+  padding: 4px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+}
+li ol,
+li ul {
+  margin-top: 6px;
+}
+ol ol li:last-child {
+  margin-bottom: 0;
+} */

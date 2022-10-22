@@ -32,7 +32,7 @@ function Footer() {
                 rel="noopener noreferrer"
                 className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-500 hover:border-black  hover:border-b-2 w-fit"
               >
-                About Us
+                About Echo Forest
               </Link>
               <Link
                 to="/roadmap"
@@ -43,14 +43,14 @@ function Footer() {
               </Link>
             </div>
             <div className="flex flex-col gap-5">
-              <a
+              {/* <a
                 href="https://blockchain.line.me/whitepaper/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-500 hover:border-black  hover:border-b-2 w-fit"
               >
                 Whitepaper
-              </a>
+              </a> */}
               <Link
                 to="/ourteam"
                 rel="noopener noreferrer"
