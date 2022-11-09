@@ -40,7 +40,7 @@ function Roadmap() {
     { id: 4, imgcard: card_small5, discribe: "3000", img: dollar_small },
   ]
   return (
-    <div className=" pt-36 mx-auto container " id="roadmap">
+    <div className="md:pt-36 pt-10 mx-auto container " id="roadmap">
       <h3
         className="font-bold xl:text-6xl md:text-5xl text-4xl  text-center"
         data-aos="fade-up" 

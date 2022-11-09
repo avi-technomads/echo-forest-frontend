@@ -23,7 +23,7 @@ const Sliders = () => {
 
     return (
         <>
-            <div className="mt-10 xl:mt-30 md:mt-20">
+            <div className="mt-10 xl:mt-36 md:mt-20">
                 <Slider {...settings} className= "mx-auto md:w-9/12">
                     <div className="">
                         <img src={SliderImage2} className="px-2" alt="" />

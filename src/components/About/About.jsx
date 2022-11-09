@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import udti_titali from "../../image/udti-titali.svg";
+// import udti_titali from "../../image/udti-titali.svg";
 import "../About/index.css";
 import AOS from "aos";
 import FoxImage from "../../Asset/Images/fox.png";
@@ -29,8 +29,8 @@ function About() {
   return (
     <>
       <ToastContainer />
-      <div className="flex justify-center py-20">
-        <h5 className="font-bold xl:text-5xl md:text-4xl text-3xl">
+      <div className="flex justify-center md:py-20 py-8">
+        <h5 className="font-bold xl:text-5xl md:text-4xl text-2xl">
           <span className="block text-center">About Echo Forest </span>
           {/* <span className="block"></span> */}
         </h5>
@@ -108,7 +108,7 @@ function About() {
         data-aos-duration="2000"
         id="about"
       >
-        <div className="flex justify-center flex-wrap gap-10">
+        {/* <div className="flex justify-center flex-wrap gap-10">
           <div className="">
             <img
               src={FoxImage}
@@ -134,10 +134,17 @@ function About() {
               expected to launch in 2023.
             </p>
           </div>
-        </div>
+        </div> */}
 
-        <div className="flex justify-center gap-10 flex-wrap mt-10">
-          <div className=" my-auto px-4 xl:max-w-[565px] xl:ml-auto ml-0">
+        <div className="grid md:grid-cols-2 place-items-center gap-4 md:mt-10">
+          <div className="w-full">
+            <img
+              src={CartoonfoxImage}
+              alt="foximage"
+              className="md:rounded-2xl w-full rounded-md md:h-96 md:px-0 px-2"
+            />
+          </div>
+          <div className="my-auto px-4">
             <p className="text-justify">
               Echo Forest began when co-Founders Brooks Clifford and Matt
               Benesch realized they had a combination of shared passions that
@@ -154,49 +161,81 @@ function About() {
               questionnaires. The Echo App is currently in development and is
               expected to launch in 2023.
             </p>
-          </div>
 
-          <div className="">
-            <img
-              src={CartoonfoxImage}
-              alt="foximage"
-              className="md:rounded-2xl rounded-md md:h-96 xl:max-w-[565px] px-2"
-            />
+            <p className="text-justify mt-4">
+              Another core focus of Echo Forest is the Echo Forest DAO, the
+              philanthropic arm of our community that is focused on forest
+              conservation. Ten percent of all revenue generated through Echo
+              Forest will be directly deposited via smart contract into the Echo
+              Forest DAO wallet
+              <span className="md:block hidden font-bold py-3">
+                [G9x7XrTgJo51HCCThrVqgAiL4sasJZ9mUgj7n9L7yyWZ].
+                <i
+                  className="fa-solid fa-copy ml-2 cursor-pointer"
+                  onClick={copyToClipBoard}
+                ></i>
+              </span>
+              <span className="md:hidden block font-bold py-3">
+                [G9x7...yyWZ].
+                <i
+                  className="fa-solid fa-copy ml-2 cursor-pointer"
+                  onClick={copyToClipBoard}
+                ></i>
+              </span>
+              These funds will be used to purchase land in order to protect and
+              preserve forests in their natural state.
+            </p>
           </div>
         </div>
       </div>
 
       <div className="mx-auto container">
-        <div className="text-2xl text-center tracking-wide py-16 px-2">
-          <h3 className="font-bold xl:text-6xl md:text-5xl text-xl text-center tracking-normal pb-24 pt-8">
+        <div className="tracking-wide md:py-16 py-4 px-2">
+          <h3 className="font-bold xl:text-5xl md:text-4xl text-2xl text-center tracking-normal md:pb-24 pb-10 pt-8">
             The Echo App
           </h3>
-          <p className="pb-5 px-5">
-            The design for the Echo App is only possible because of the way the
-            video game industry has evolved over the last ten years. A
-            relatively new concept in the video game industry are ‘free to play’
-            games. Many video games published today are created to be ‘free to
-            play’ meaning the games are designed to get players in the game for
-            free, then upsell them with microtransactions.
-          </p>
-          <p className="pb-5 px-5">
-            One of my all-time favorite games is a perfect example of this
-            concept; Hearthstone. Hearthstone is a digital card game designed by
-            Blizzard Entertainment and is free to play. Anyone can download the
-            game for free and begin playing it. However, as a card game, when
-            you download the game and play it for the first time you will have a
-            very limited library of cards to choose from to use. As a result,
-            players will often purchase digital packs of cards to increase the
-            strength of their deck as well as the variety of decks which they
-            can play. It’s not uncommon for players to spend hundreds of dollars
-            each year on digital card packs - adding up to thousands of dollars
-            spent on the game over a lifetime. Compare this to the previous
-            business model of the 90’s and early 2000’s where video game
-            companies would release a game for a one time fixed cost. This new
-            business model of ‘free to play/upsell with microtransactions’ has
-            returned healthy profits when compared to the former model.
-          </p>
-          <p className="pb-5 px-5">
+
+          <div className="grid md:grid-cols-2 place-items-center gap-4 text-justify ">
+            {/* first div */}
+            <div className="md:px-0 px-2">
+              <p>
+                The design for the Echo App is only possible because of the way
+                the video game industry has evolved over the last ten years. A
+                relatively new concept in the video game industry are ‘free to
+                play’ games. Many video games published today are created to be
+                ‘free to play’ meaning the games are designed to get players in
+                the game for free, then upsell them with microtransactions.
+              </p>
+              <p className="pt-5">
+                One of my all-time favorite games is a perfect example of this
+                concept; Hearthstone. Hearthstone is a digital card game
+                designed by Blizzard Entertainment and is free to play. Anyone
+                can download the game for free and begin playing it. However, as
+                a card game, when you download the game and play it for the
+                first time you will have a very limited library of cards to
+                choose from to use. As a result, players will often purchase
+                digital packs of cards to increase the strength of their deck as
+                well as the variety of decks which they can play. It’s not
+                uncommon for players to spend hundreds of dollars each year on
+                digital card packs - adding up to thousands of dollars spent on
+                the game over a lifetime. Compare this to the previous business
+                model of the 90’s and early 2000’s where video game companies
+                would release a game for a one time fixed cost. This new
+                business model of ‘free to play/upsell with microtransactions’
+                has returned healthy profits when compared to the former model.
+              </p>
+            </div>
+
+            <div className="md:w-full w-auto px-4">
+              <img
+                src={BunchOfNFTS}
+                alt="NFTS"
+                className="md:w-full w-auto rounded-lg md:rounded-2xl md:h-96"
+              />
+            </div>
+          </div>
+
+          <p className="pt-5 text-justify xl:pr-4 pr-2 xl:pl-0 pl-2 mx-auto">
             The Echo App is designed to connect gamers who are interested in
             playing a new video game with video game companies that are willing
             to incentivize users to download and play test their games for a
@@ -213,16 +252,9 @@ function About() {
             have resulted in 10,000 players downloading and playing the game to
             a specific point. Echo Forest will take a small percent of the
             transaction but the majority of the payment will go to players as
-            their reward for their engagement.
+            their reward for their engagement
           </p>
 
-          <div className="flex justify-center mt-10 ">
-            <img
-              src={BunchOfNFTS}
-              alt="NFTS"
-              className="w-2/3 rounded-lg md:rounded-2xl"
-            />
-          </div>
           {/* <p className="pb-5 px-5">
               $EXP is the token that powers the Echoverse. The new Echo App is
               the only gaming platform that rewards
@@ -238,53 +270,58 @@ function About() {
             </p> */}
         </div>
 
-        <div className="text-center text-2xl tracking-wide py-16 pb-5 px-2">
-          <h3 className="font-bold xl:text-6xl md:text-5xl text-4xl text-center tracking-normal pb-28">
+        <div className="text-justify tracking-wide md:py-16 py-8 px-2">
+          <h3 className="font-bold xl:text-5xl md:text-4xl text-2xl text-center tracking-normal md:pb-28 pb-10">
             The Echo Forest DAO
           </h3>
-          <div className="text-xl px-1">
-            <p className="pb-5">
-              Leveraging art and technology to drive forest conservation across
-              the world.
-            </p>
-            <p className="pb-5">
-              Ten percent of all revenue generated through Echo Forest will be
-              directly deposited via smart contract into the Echo Forest DAO
-              wallet
-              <span className="md:block hidden font-bold text-xl py-3">
-                [G9x7XrTgJo51HCCThrVqgAiL4sasJZ9mUgj7n9L7yyWZ].
-                <i
-                  className="fa-solid fa-copy ml-2 cursor-pointer"
-                  onClick={copyToClipBoard}
-                ></i>
-              </span>
-              <span className="md:hidden block font-bold text-xl py-3">
-                [G9x7...yyWZ].
-                <i
-                  className="fa-solid fa-copy ml-2 cursor-pointer"
-                  onClick={copyToClipBoard}
-                ></i>
-              </span>
-              These funds will be used to purchase land in order to protect and
-              preserve forests in their natural state. As Minnesota natives, the
-              Echo Forest team plans to purchase our first lot of land adjacent
-              to the Boundary Waters Canoe Area (BWCA), which is one of the
-              largest contiguous areas of uncut forest remaining in the eastern
-              United States.
-            </p>
-            <p className="pb-5">
-              Over time we plan to build a network of forests that can be
-              utilized by members of the Echo Forest DAO in ways such as camping
-              or recreational use of the land. Our goal is to obtain land in the
-              6 major continents (excluding Antarctica) and preserve forests in
-              their natural state.
-            </p>
 
+          <div>
             <img
               src={NatureImage}
               alt="nature-img"
-              className="rounded-lg md:rounded-2xl mt-10"
+              className="rounded-lg md:rounded-2xl mb-10"
             />
+          </div>
+
+          <div className="text-center">
+            <div>
+              <p className="pb-5">
+                Leveraging art and technology to drive forest conservation
+                across the world.
+              </p>
+              <p className="pb-5">
+                Ten percent of all revenue generated through Echo Forest will be
+                directly deposited via smart contract into the Echo Forest DAO
+                wallet
+                <span className="md:block hidden font-bold text-xl py-3">
+                  [G9x7XrTgJo51HCCThrVqgAiL4sasJZ9mUgj7n9L7yyWZ].
+                  <i
+                    className="fa-solid fa-copy ml-2 cursor-pointer"
+                    onClick={copyToClipBoard}
+                  ></i>
+                </span>
+                <span className="md:hidden block font-bold text-xl py-3">
+                  [G9x7...yyWZ].
+                  <i
+                    className="fa-solid fa-copy ml-2 cursor-pointer"
+                    onClick={copyToClipBoard}
+                  ></i>
+                </span>
+                These funds will be used to purchase land in order to protect
+                and preserve forests in their natural state. As Minnesota
+                natives, the Echo Forest team plans to purchase our first lot of
+                land adjacent to the Boundary Waters Canoe Area (BWCA), which is
+                one of the largest contiguous areas of uncut forest remaining in
+                the eastern United States.
+              </p>
+              <p>
+                Over time we plan to build a network of forests that can be
+                utilized by members of the Echo Forest DAO in ways such as
+                camping or recreational use of the land. Our goal is to obtain
+                land in the 6 major continents (excluding Antarctica) and
+                preserve forests in their natural state.
+              </p>
+            </div>
 
             {/* <p className="pb-5">
                 10% of all Echo Forest NFT sales will be directly deposited via

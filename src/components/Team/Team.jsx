@@ -84,7 +84,7 @@ function Team() {
 
   return (
     <>
-      <div className="pt-32 mx-auto container" id="team">
+      <div className="pt-16 md:pt-32 mx-auto container" id="team">
         <h5
           className="font-bold xl:text-6xl md:text-5xl text-4xl text-center"
           data-aos="fade-up"
@@ -95,14 +95,14 @@ function Team() {
           </span>
            <span className="block">the Forest</span>
         </h5>
-        <div className=" gap-10  md:p-5 p-0 flex flex-wrap justify-center ">
+        <div className="gap-10 md:p-4 p-0 md:px-0 px-2 flex flex-wrap justify-center ">
           {team.map((items, key) => (
             <div
-              className="w-full max-w-sm bg-[#E1F2DD] hover:bg-[#E1F2DD] hover:bg-opacity-50 rounded-lg  shadow-l  mt-16   hover:-translate-y-1 hover:scale-110   duration-700 hover:shadow-2xl"
+              className="w-full max-w-sm bg-[#E1F2DD] hover:bg-[#E1F2DD] hover:bg-opacity-50 rounded-lg  shadow-l  mt-16   hover:-translate-y-1 hover:scale-110 duration-700 hover:shadow-2xl"
               key={key}
             >
               <div
-                className="flex flex-col items-center pb-10 py-7 transition ease-in-out delay-150  "
+                className="flex flex-col items-center pb-10 py-7 transition ease-in-out delay-150"
                 data-aos="fade-up"
                 data-aos-duration="3000"
               >

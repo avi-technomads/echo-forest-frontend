@@ -8,16 +8,16 @@ import SliderImage2 from "../../image/SliderImage2.png";
 import SliderImage3 from "../../image/SliderImage3.png";
 import SliderImage4 from "../../image/SliderImage4.png";
 import SliderImage5 from "../../image/SliderImage5.png";
-import NatureImage from "../../Asset/Images/nature.png";
+// import NatureImage from "../../Asset/Images/nature.png";
 
-
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const UpcomingMint = () => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const StableData = [
     {
       id: 1,
@@ -179,25 +179,15 @@ const UpcomingMint = () => {
       id: 5,
       years: "Years 5",
       token: "46.875 M",
-      rate: "46.875 M",
+      rate: "46.875 $EXP",
     },
     {
       id: 6,
       years: "Years 6",
       token: "46.875 M",
-      rate: "46.875 M",
+      rate: "46.875 $EXP",
     },
   ];
-
-  const walletToast = () =>
-    toast.success("Wallet Address copied successfully!");
-
-  const copyToClipBoard = () => {
-    navigator?.clipboard?.writeText(
-      "G9x7XrTgJo51HCCThrVqgAiL4sasJZ9mUgj7n9L7yyWZ"
-    );
-    walletToast();
-  };
 
   return (
     <>
@@ -223,7 +213,7 @@ const UpcomingMint = () => {
                 YOU NEED TO MAKE SURE TO HAVE YOUR RECOVERY SEED WRITTEN DOWN
               </li>
               <li className="py-1">
-                Connect your phantom wallet to the website on November 5th.
+                Connect your phantom wallet to the website on December 2nd.
               </li>
               <li className="py-1">
                 Swap $SOL for an Echo Forest NFT (price will begin at 2.0 $SOL)
@@ -238,14 +228,14 @@ const UpcomingMint = () => {
 
         <div className="px-4">
           <div className="3xl:px-20 2xl:px-16 xl:px-12 lg:px-8 md:px-6 px-1 mt-20 text-center total-mint">
-            <div className="text-2xl text-center tracking-wide py-16 px-2">
+            <div className="text-lg md:text-2xl text-center tracking-wide py-16 px-2">
               <p className="pb-5">
                 <span className="font-bold">Total Mint :</span> 10,000 NFT
                 collection (9,500 public sale, 500 for team use).
               </p>
               <p className="pb-5">
-                <span className="font-bold">Mint Date and Time :</span> November
-                5th, 2022 @ 5pm EST.
+                <span className="font-bold">Mint Date and Time :</span> December
+                2nd, 2022 @ 4pm EST.
               </p>
               <p className="pb-5 px-5 3xl:px-56 2xl:px-50 xl:px-40 lg:px-24">
                 <span className="font-bold">Price : </span>
@@ -259,7 +249,7 @@ const UpcomingMint = () => {
         </div>
 
         <div className="flex justify-center mt-20">
-          <table className="table-fixed text-2xl w-11/12 3xl:w-4/6 2xl:w-4/6 xl:w-4/6 md:w-4/6 sm:w-11/12">
+          <table className="table-fixed text-sm md:text-2xl w-11/12 3xl:w-4/6 2xl:w-4/6 xl:w-4/6 md:w-4/6 sm:w-11/12">
             <thead>
               <tr>
                 <th>NFT Number</th>
@@ -283,16 +273,16 @@ const UpcomingMint = () => {
           <p>
             <span className="font-bold">Whitelisted spots :</span> 0
           </p>
-          <p>
+          <div>
             <span className="font-bold">
               Mints per unique Solana wallet address :
             </span>
-            unlimited
-          </p>
+            <span>&nbsp;unlimited</span>
+          </div>
           <p>
             <span className="font-bold">Mint Location :</span>
             <a href="" className="underline decoration-1 text-sky-900">
-              https://echoforest.app/mint
+            <span>https://echoforest.app/mint</span>
             </a>
           </p>
         </div>
@@ -311,17 +301,15 @@ const UpcomingMint = () => {
       </div>
 
       <div className="mx-auto container">
-        <div className="px-4 3xl:px-20 2xl:px-16 xl:px-12 lg:px-8 sm:px-6 xs:px-5 mt-20 text-center">
-          
-        </div>
+        <div className="px-4 3xl:px-20 2xl:px-16 xl:px-12 lg:px-8 sm:px-6 xs:px-5 mt-20 text-center"></div>
 
         <div className="flex justify-center">
-          <table className="echoapp table-fixed text-2xl w-11/12">
+          <table className="echoapp table-fixed text-sm md:text-2xl w-11/12">
             <thead>
               <tr>
                 <th>Years</th>
-                <th>Token</th>
-                <th>Current Rate</th>
+                <th>Yearly Distribution Of $EXP Token</th>
+                <th>Daily Distribution Per NFT</th>
               </tr>
             </thead>
             <tbody>
@@ -338,7 +326,7 @@ const UpcomingMint = () => {
           </table>
         </div>
         <div className="px-4 flex justify-center mt-10 3xl:px-20 2xl:px-16 xl:px-12 lg:px-8 sm:px-6 xs:px-5 text-center">
-          <div className="text-center w-6/12 text-base tracking-wide">
+          <div className="text-center md:w-6/12 text-base tracking-wide">
             <p className="pb-5">
               This schedule continues at a rate of 50% reduction in $EXP
               distribution every 2 years until the maximum distribution of
@@ -347,9 +335,7 @@ const UpcomingMint = () => {
           </div>
         </div>
 
-        <div className="px-4 3xl:px-20 2xl:px-16 xl:px-12 lg:px-8 sm:px-6 xs:px-5 mt-20 text-center">
-        
-        </div>
+        <div className="px-4 3xl:px-20 2xl:px-16 xl:px-12 lg:px-8 sm:px-6 xs:px-5 mt-20 text-center"></div>
       </div>
     </>
   );
